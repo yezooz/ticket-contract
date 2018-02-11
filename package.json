@@ -1,0 +1,33 @@
+{
+  "name": "@planar/ticket-contract",
+  "version": "1.0.0",
+  "description": "Planar Network Ticket Contract",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "mocha 'test/**/*.spec.js'",
+    "build": "solcjs --abi -o ./build/ ./src/TravelTicket.sol && node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/planarnetwork/ticket-contract.git"
+  },
+  "keywords": [
+    "planar",
+    "network",
+    "travel",
+    "ticket"
+  ],
+  "author": "Linus Norton <linus@planar.network>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/planarnetwork/ticket-contract/issues"
+  },
+  "homepage": "https://github.com/planarnetwork/ticket-contract#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "ganache-cli": "^6.0.3",
+    "mocha": "^5.0.0",
+    "solc": "^0.4.19",
+    "zeppelin-solidity": "^1.6.0"
+  }
+}
