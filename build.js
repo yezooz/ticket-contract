@@ -36,7 +36,7 @@ fs.writeFile('./build/TravelTicket.json', JSON.stringify(compiledCode), function
 // }
 
 const travelTicket = compiledCode.contracts['TravelTicket.sol:TravelTicket'];
-console.log(travelTicket);
+// console.log(travelTicket);
 
 const Web3 = require('web3');
 const web3 = new Web3();
