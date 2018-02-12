@@ -2,21 +2,21 @@ const solc = require('solc');
 const fs = require('fs');
 
 const inputs = {
-  './src/TravelTicket.sol': {
-    'content': fs.readFileSync('./src/TravelTicket.sol').toString()
-  }
-};
+  'TravelTicket.sol': fs.readFileSync('./src/TravelTicket.sol').toString()
+}
 
 // Assumes imported files are in the same folder/local path
 function findImports(path) {
-  path = path.charAt(0) === '.' ? path : './node_modules/' + path;
-  
-  return {
-    'contents': fs.readFileSync(path).toString()
-  }
+  path = path.charAt(0) === '.'
+    ? path
+    : './node_modules/' + path;
+
+  return {'contents': fs.readFileSync(path).toString()}
 }
 
-const compiledCode = solc.compileStandardWrapper({sources: inputs}, findImports);
+const compiledCode = solc.compile({
+  'sources': inputs
+}, 1, findImports);
 console.log(compiledCode);
 
 if (compiledCode.errors && compiledCode.errors.length > 0) {
@@ -27,6 +27,9 @@ for (const id in compiledCode.contracts) {
   console.log(id);
   console.log(compiledCode.contracts[id].interface);
 }
+
+const TravelTicketABI = compiledCode.contracts['TravelTicket.sol:TravelTicket'].interface;
+console.log(TravelTicketABI);
 
 // fs.writeFile('./build/TravelTicket.json', JSON.stringify(compiledCode), function(err) {
 //     if (err) throw err;
