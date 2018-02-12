@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "test": "mocha 'test/**/*.spec.js'",
-    "build": "solcjs --abi -o ./build/ ./src/TravelTicket.sol && node index.js"
+    "build": "mkdir -p build && node build.js && node index.js"
   },
   "repository": {
     "type": "git",
