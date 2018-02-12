@@ -29,5 +29,8 @@
     "mocha": "^5.0.0",
     "solc": "^0.4.19",
     "zeppelin-solidity": "^1.6.0"
+  },
+  "dependencies": {
+    "web3": "^1.0.0-beta.29"
   }
 }
